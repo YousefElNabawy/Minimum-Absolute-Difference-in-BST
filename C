@@ -1,0 +1,25 @@
+void inorderTraversal(struct TreeNode* root, int* prev, int* min_diff) {
+    if (root == NULL) return;
+    
+    // Traverse the left subtree
+    inorderTraversal(root->left, prev, min_diff);
+    
+    // Process the current node
+    if (*prev != -1) { // Skip the first node as there's no previous node to compare
+        int diff = root->val - *prev;
+        if (diff < *min_diff) {
+            *min_diff = diff;
+        }
+    }
+    *prev = root->val; // Update the previous value to current node's value
+    
+    // Traverse the right subtree
+    inorderTraversal(root->right, prev, min_diff);
+}
+
+int getMinimumDifference(struct TreeNode* root) {
+    int min_diff = INT_MAX;
+    int prev = -1; // Initial previous value, indicating the start
+    inorderTraversal(root, &prev, &min_diff);
+    return min_diff;
+}
