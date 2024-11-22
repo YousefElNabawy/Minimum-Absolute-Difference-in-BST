@@ -1,0 +1,21 @@
+Approach:
+  1.Perform an in-order traversal of the tree.
+  2.Keep track of the previous node's value as you traverse.
+  3.For each node, calculate the difference between the current node’s value and the previous node’s value, updating the minimum difference if this difference is smaller.
+Steps:
+  1.Initialize a variable prev to keep track of the previous node's value in the in-order traversal.
+  2.Initialize min_diff to store the minimum absolute difference found.
+  3.  Traverse the tree in order, updating prev and calculating the difference with the current node’s value.
+
+Explanation:
+  1.inorderTraversal function: This is a helper function that does an in-order traversal of the BST. It calculates the difference between the current node's value and the previous node's value, updating min_diff 
+  if the difference is smaller.
+  2.getMinimumDifference function: This function initializes min_diff and prev, and then calls inorderTraversal. Finally, it returns the minimum absolute difference found.
+
+Complexity Analysis:
+
+  Time Complexity: 
+    𝑂(𝑛), where 𝑛 is the number of nodes, as we visit each node once.
+
+  Space Complexity: 
+    𝑂(ℎ), where ℎ is the height of the tree, for the recursive stack during traversal. In the worst case, ℎ=𝑛 if the tree is skewed.
