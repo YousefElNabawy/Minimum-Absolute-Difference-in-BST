@@ -1,3 +1,10 @@
+Explanation:
+  1.inorderTraversal function: This is a helper function that does an in-order traversal of the BST. It calculates the difference between the current node's value and the previous node's value, updating min_diff 
+  if the difference is smaller.
+  2.getMinimumDifference function: This function initializes min_diff and prev, and then calls inorderTraversal. Finally, it returns the minimum absolute difference found.
+
+
+
 void inorderTraversal(struct TreeNode* root, int* prev, int* min_diff) {
     if (root == NULL) return;
     
